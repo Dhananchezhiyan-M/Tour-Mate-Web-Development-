@@ -1,0 +1,96 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+    body {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+            url('https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .edit-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+    .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .form-control:focus {
+        border-color: #4b6584;
+        box-shadow: 0 0 0 0.2rem rgba(75, 101, 132, 0.25);
+    }
+    .btn-info {
+        background-color: #4b6584;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #3c526d;
+    }
+    .back-link {
+        color: #4b6584;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .back-link:hover {
+        color: #3c526d;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="row">
+        <h1 class="text-center mb-4">Edit Tourist Spot</h1>
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+            <div class="edit-form">
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="campground[title]" value="<%= campground.title %>" required>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="campground[location]" value="<%= campground.location %>" required>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" id="location" name="campground[image]" value="<%= campground.image %>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tour Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span><!--input-group-text will give a box like format for $-->
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="campground[price]" value="<%= campground.price %>" required>
+                    </div>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="location" name="campground[description]" required><%= campground.description%></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <button class="btn btn-info btn-lg w-100">Update Tourist Spot</button>
+                </div>
+                <div class="text-center">
+                    <a href="/campgrounds/<%= campground._id%>" class="back-link">Back to Available Spots</a>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>

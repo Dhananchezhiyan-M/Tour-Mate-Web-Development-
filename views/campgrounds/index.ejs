@@ -1,0 +1,116 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+    body {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+            url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2d3436;
+        margin-top: 1rem;
+    }
+    .card-text {
+        color: #636e72;
+    }
+    .btn-primary {
+        background-color: #0984e3;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+        background-color: #0866b0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(9, 132, 227, 0.3);
+    }
+    .add-spot-btn {
+        background-color: #00b894;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+        transition: all 0.2s ease;
+    }
+    .add-spot-btn:hover {
+        background-color: #00a38d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 184, 148, 0.3);
+        color: white;
+    }
+    .page-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2d3436;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+</style>
+
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">Discover Amazing Tourist Spots</h1>
+        <a href="/campgrounds/new" class="add-spot-btn">
+            <i class="fas fa-plus-circle"></i> Add New Tourist Spot
+        </a>
+    </div>
+<div class="row">
+    <% for(let campground of campgrounds) {%>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img alt="<%= campground.title %>" src="<%= campground.image %>">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= campground.title %></h5>
+                            <p class="card-text"><%= campground.description %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-map-marker-alt"></i> <%= campground.location %>
+                                    </small>
+                                </p>
+                                <a class="btn rounded-pill btn-primary" href="/campgrounds/<%= campground._id %>">
+                                    Explore <%= campground.title %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

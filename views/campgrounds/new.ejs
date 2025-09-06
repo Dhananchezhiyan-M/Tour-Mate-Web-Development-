@@ -1,0 +1,135 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+    body {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+            url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .create-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+    .form-label {
+        font-weight: 600;
+        color: #2d3436;
+    }
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        padding: 0.75rem;
+        transition: all 0.2s ease-in-out;
+    }
+    .form-control:focus {
+        border-color: #00b894;
+        box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.25);
+    }
+    .input-group-text {
+        background-color: #00b894;
+        color: white;
+        border: 1px solid #00b894;
+    }
+    .btn-success {
+        background-color: #00b894;
+        border: none;
+        padding: 12px 24px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    .btn-success:hover {
+        background-color: #00a38d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .valid-feedback {
+        color: #00b894;
+    }
+</style>
+
+    <div class="row">
+        <h1 class="text-center mb-4">Add New Tourist Spot</h1>
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+            <div class="create-form">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form"><!--class: Allow to submit if all get validated, You use novalidate when you want to disable browser validation(gives error msg) -->
+                <!--The browser skips this validation, and submits the form even if inputs are invalid or incomplete.-->
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="campground[title]" required><!--if we give without required, it shows the tick mark-->
+                    <div class="valid-feedback">
+                        Looks Good!!
+                    </div>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="campground[location]" required>
+                    <div class="valid-feedback">
+                        Looks Good!!
+                    </div>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" id="location" name="campground[image]" required>
+                    <div class="valid-feedback">
+                        Looks Good!!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">One night Staying Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text"
+                            id="price-label">$</span><!--input-group-text will give a box like format for $-->
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                            aria-describedby="price-label" name="campground[price]" required>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!!
+                    </div>
+                </div>
+
+                <div class="mb-3"><!--For spacing between them-->
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="location" name="campground[description]"
+                        required></textarea>
+                        <div class="valid-feedback">
+                        Looks Good!!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Campground</button>
+                </div>
+                <!--<a href="/campgrounds">All Campgrounds</a>-->
+            </form>
+        </div>
+    </div>
+<!--makes the red colored format, we will shift this into boiler plate--> 
+<!--    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.validated-form')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+-->
