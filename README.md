@@ -44,7 +44,7 @@ This project was developed as part of a web development:
 ---
 
 ## 💡 Uses of the Website
-- ✅ Discover and explore tourist spots & campgrounds  
+- ✅ Discover and explore tourist spots & places  
 - ✅ Share personal travel experiences with images & reviews  
 - ✅ Help travelers make informed decisions through community ratings  
 
