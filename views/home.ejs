@@ -1,0 +1,48 @@
+<%- layout('layouts/boilerplate')%>
+
+<style>
+    .cover-container {
+        min-height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+        margin-top: -24px; /* Offset for navbar */
+    }
+    .cover-text {
+        color: white;
+        font-weight: 400;
+    }
+    .btn-secondary, .btn-secondary:hover {
+        color: #333;
+        text-shadow: none;
+        background-color: #fff;
+        border: 0.05rem solid #fff;
+        transition: transform 0.3s ease;
+    }
+    .btn-secondary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+    .nav-link {
+        padding: 0.25rem 0;
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: 1rem;
+        border-bottom: 0.25rem solid transparent;
+    }
+</style>
+
+<div class="cover-container d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h1 class="display-3 cover-text fw-bold mb-4">Welcome to TourMate!</h1>
+                <p class="lead cover-text mb-3">Discover and share amazing tourist spots around the world.</p>
+                <p class="lead cover-text mb-4">Share your camping experiences, explore new destinations, and connect with fellow outdoor enthusiasts!</p>
+                <a href="/campgrounds" class="btn btn-lg btn-secondary fw-bold px-4 py-2">Explore Tourist Spots</a>
+            </div>
+        </div>
+    </div>
+</div>
